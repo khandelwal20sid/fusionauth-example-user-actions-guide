@@ -28,20 +28,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
+// tag::intercom[]
 app.post('/intercom', function(req, res) {
   console.log('Incoming Request to Intercom:');
   console.log(req.body);
   console.log('');
   res.sendStatus(200);
 });
+// end::intercom[]
 
+// tag::slack[]
 app.post('/slack', function(req, res) {
   console.log('Incoming Request to Slack:');
   console.log(req.body);
   console.log('');
   res.sendStatus(200);
 });
+// end::slack[]
 
+// tag::expire[]
 app.post('/expire', async function(req, res) {
   console.log('Incoming Request to PiedPiper Expiry:');
   console.log(req.body);
@@ -74,7 +79,7 @@ app.post('/expire', async function(req, res) {
   }
   res.sendStatus(200);
 });
-
+// end::expire[]
 
 app.use(function(req, res, next) {
   next(createError(404));
