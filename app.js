@@ -5,11 +5,12 @@ var expressSession = require('express-session');
 var path = require('path');
 var logger = require('morgan');
 var dotenv = require('dotenv').config();
+
+// tag::tsClientLib[]
 const client = require('@fusionauth/typescript-client');
-
-
 const apikey = process.env.API_KEY;
 const fusionAuthURL = process.env.BASE_URL;
+// end::tsClientLib[]
 
 var indexRouter = require('./routes/index');
 
